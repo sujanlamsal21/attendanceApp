@@ -13,6 +13,7 @@ export default function Header(){
                     <li style={{marginLeft:'15px'}}><Link to='/' >Home</Link></li>
                     <li style={{marginLeft:'15px'}}><Link to='/pull-data'>Pull Data <span className="sr-only">(Today)</span></Link></li>
                     <li style={{marginLeft:'15px'}}><Link to='/setting' >Setting</Link></li>
+                    <li style={{marginLeft:'15px'}}><Link to='/devices' >Devices</Link></li>
                     {/* <li style={{marginLeft:'15px'}}>List User</li> */}
                 </ul>
             </div>

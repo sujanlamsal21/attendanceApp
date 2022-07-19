@@ -1,39 +1,38 @@
 import React from 'react';
 import {Form, Row} from "react-bootstrap";
 import {FormItem} from "./Helper";
-const AddUser = (props) => {
+const AddDeviceForm = (props) => {
     return (
         <div>
             <Form onSubmit={props.handleSubmit}
                   className='form-horizontal'
                   id='attendanceapp-form'>
                 <Row>
-                    <FormItem input_name="name"
+                    <FormItem input_name="device_name"
                               class='12'
                               labelClassPartation='2'
                               inputDivClassPartation='10'
                               required={true}
-                              value={props.data.name}
-                              errors={props.errors.name ?? ''}
+                              value={props.data.device_name}
+                              errors={props.errors?.name ?? ''}
                               handleChange={props.handleOnInputChange}
                     />
-                     <FormItem input_name="attendance_id"
+                     <FormItem input_name="device_ip"
                               class='12'
                               labelClassPartation='2'
                               inputDivClassPartation='10'
                               required={true}
-                              value={props.data.attendance_id}
-                              errors={props.errors.attendance_id ?? ''}
+                              value={props.data.device_ip}
+                              errors={props.errors?.ip ?? ''}
                               handleChange={props.handleOnInputChange}
                     />
-                     <FormItem input_name="password"
+                     <FormItem input_name="device_port"
                               class='12'
-                              type="password"
                               labelClassPartation='2'
                               inputDivClassPartation='10'
                               required={true}
-                              value={props.data.password}
-                              errors={props.errors.password ?? ''}
+                              value={props.data.device_port}
+                              errors={props.errors?.port ?? ''}
                               handleChange={props.handleOnInputChange}
                     />
                 </Row>
@@ -41,4 +40,4 @@ const AddUser = (props) => {
         </div>
     )
 }
-export default AddUser;
+export default AddDeviceForm;

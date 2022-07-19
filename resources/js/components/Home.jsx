@@ -5,7 +5,8 @@ import {Button} from "react-bootstrap";
 import { CustomModal } from "./Helper";
 import AddUser from "./AddUser";
 
-export default function Home() {
+export default function Home(props) {
+    const axios = props.axios;
     const [modalShow, setModelShow]= useState(false);
     const [error, setError]= useState({});
     const [data, setData]= useState({
@@ -17,6 +18,7 @@ export default function Home() {
     });
     const handleClose =() => setModelShow(false);
     const handleShow =() => setModelShow(true);
+    const [details, setDetails]= useState([]);
 
     const submitForm =(e)=>{
       e.preventDefault();
@@ -28,6 +30,21 @@ export default function Home() {
          [e.target.name]:e.target.value
     })
     }
+
+    const getAllUsers=()=>{
+        const baseUrl = props.SERVER_DOMAIN + `/api/getUsers`
+        axios.get(`${baseUrl}`)
+            .then(response => {
+                setDetails(response.data.data);
+                console.log(response.data.data, 'success')
+            }).catch(error => {
+                console.log(error.response, "error");
+            })
+    }
+
+    useEffect(()=>{
+        getAllUsers();
+    },[])
     return (
         <Row className="col-md-12">
             <Col className="col-md-12">
@@ -52,10 +69,16 @@ export default function Home() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td className="text-center">1</td>
-                                    <td className="text-center">Sujan</td>
-                                </tr>
+                                {
+                                    details?.map((raw,index)=>{
+                                        return (
+                                            <tr key={index}>
+                                            <td className="text-center">{raw.userid}</td>
+                                            <td className="text-center">{raw.name}</td>
+                                        </tr>
+                                        );
+                                    })
+                                }
                             </tbody>
                         </>
                     </table>

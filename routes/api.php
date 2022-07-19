@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\controllers\Api\AttendanceDeviceController;
+use App\Http\Controllers\Api\AttendanceDeviceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,6 +15,19 @@ use App\Http\controllers\Api\AttendanceDeviceController;
 */
 
 Route::get('attendanceDetails',[AttendanceDeviceController::class, 'index']);
+
+Route::post('addDevice',[AttendanceDeviceController::class, 'store']);
+
+Route::get('getDevices',[AttendanceDeviceController::class, 'getDevices']);
+
+Route::post('websiteDetails',[AttendanceDeviceController::class, 'websiteDetails']);
+
+Route::get('setting',[AttendanceDeviceController::class, 'settings']);
+
+Route::get('getUsers',[AttendanceDeviceController::class, 'getUsers']);
+
+// Route::apiResource('addDevice',[DeviceController::class]);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

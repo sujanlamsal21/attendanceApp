@@ -5,8 +5,8 @@ import { BrowserRouter as Router
          ,Route,Routes} from 'react-router-dom';
 import Home from "./components/Home";
 import Header from './components/Header';
-import ListUser from "./components/ListUser";
 import Setting from "./components/Setting";
+import Devices from "./components/Devices";
 
 axios.defaults.withCredentials = true;
 const SERVER_DOMAIN = window.location.origin;
@@ -35,9 +35,18 @@ function App() {
         <Router>
                 <Header />
             <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/list-user' element={<ListUser />} />
-                <Route path='/setting' element={<Setting />} />
+                <Route path='/' element={<Home 
+                 SERVER_DOMAIN={SERVER_DOMAIN}
+                 axios={axios}
+                />} />
+                <Route path='/setting' element={<Setting 
+                  SERVER_DOMAIN={SERVER_DOMAIN}
+                  axios={axios}
+                />} />
+                <Route path='/devices' element={<Devices 
+                 SERVER_DOMAIN={SERVER_DOMAIN}
+                 axios={axios}
+                />} />
             </Routes>
         </Router>
         </> 
