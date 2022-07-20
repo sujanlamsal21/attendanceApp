@@ -16,7 +16,7 @@ export default function Devices(props) {
         title: "Add User",
         buttonText: "Submit"
     });
-    const [details, setDetails]= useState([]);
+    const [details, setDetails] = useState([]);
     const handleClose = () => setModelShow(false);
     const handleShow = () => setModelShow(true);
 
@@ -35,7 +35,7 @@ export default function Devices(props) {
             });
     }
 
-    const getAddDevices=()=>{
+    const getAddDevices = () => {
         const baseUrl = props.SERVER_DOMAIN + `/api/getDevices`
         axios.get(`${baseUrl}`)
             .then(response => {
@@ -46,9 +46,9 @@ export default function Devices(props) {
             })
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getAddDevices();
-    },[])
+    }, [])
 
     const handleOnInputChange = (e) => {
         setData({
@@ -60,51 +60,53 @@ export default function Devices(props) {
 
 
     return (
-        <Row className="col-md-12">
-            <Col className="col-md-12">
-                <>
-                    <div className='pull-right' style={{ marginBottom: "8px", float: 'right' }}>
-                        <button className='btn btn-primary pull-right btn-flat'
-                            onClick={handleShow}
-                        >
-                            Add Device
-                        </button>
-                    </div>
-                </>
-            </Col>
-            <Col className="col-md-12">
-                <div className="box">
-                    <table className="table table-bordered table-fit table-condensed" style={{ marginLeft: '10px' }}>
-                        <>
-                            <thead>
-                                <tr>
-                                    <th className="col-md-2 text-center">Device id</th>
-                                    <th className="col-md-2 text-center">Device Name</th>
-                                    <th className="col-md-2 text-center">Device ip</th>
-                                    <th className="col-md-2 text-center">Status</th>
-                                    <th className="col-md-2 text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    details?.map((raw,index)=>{
-                                        return (
-                                            <tr key={index}>
-                                            <td className="text-center">{raw.id}</td>
-                                            <td className="text-center">{raw.device_name}</td>
-                                            <td className="text-center">{raw.device_ip}</td>
-                                            <td className="text-center">{raw.status ? <span className="">Active</span> :  <span className="">InActive</span>}</td>
-                                        </tr>
-                                        );
-                                    })
-                                }
-                              
-                            </tbody>
-                        </>
-                    </table>
-                </div>
+        <div className="container">
+            <Row className="col-md-12">
+                <Col className="col-md-12">
+                    <>
+                        <div className='pull-right' style={{ marginBottom: "8px", float: 'right' }}>
+                            <button className='btn btn-primary pull-right btn-flat'
+                                onClick={handleShow}
+                            >
+                                Add Device
+                            </button>
+                        </div>
+                    </>
+                </Col>
+                <Col className="col-md-12">
+                    <div className="box">
+                        <table className="table table-bordered table-fit table-condensed" style={{ marginLeft: '10px' }}>
+                            <>
+                                <thead>
+                                    <tr>
+                                        <th className="col-md-2 text-center">Device id</th>
+                                        <th className="col-md-2 text-center">Device Name</th>
+                                        <th className="col-md-2 text-center">Device ip</th>
+                                        <th className="col-md-2 text-center">Status</th>
+                                        <th className="col-md-2 text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        details?.map((raw, index) => {
+                                            return (
+                                                <tr key={index}>
+                                                    <td className="text-center">{raw.id}</td>
+                                                    <td className="text-center">{raw.device_name}</td>
+                                                    <td className="text-center">{raw.device_ip}</td>
+                                                    <td className="text-center">{raw.status ? <span className="">Active</span> : <span className="">InActive</span>}</td>
+                                                </tr>
+                                            );
+                                        })
+                                    }
 
-            </Col>
+                                </tbody>
+                            </>
+                        </table>
+                    </div>
+
+                </Col>
+            </Row>
             <CustomModal show={modalShow}
                 handleOnClose={handleClose}
                 title={data.title}
@@ -120,6 +122,6 @@ export default function Devices(props) {
                     />
                 }
             />
-        </Row>
+        </div>
     )
 }

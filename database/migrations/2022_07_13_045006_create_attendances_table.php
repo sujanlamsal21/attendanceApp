@@ -18,7 +18,6 @@ class CreateAttendancesTable extends Migration
             $table->integer('attendance_id');
             $table->integer('device_ip')->nullable();
             $table->string('device_name')->nullable();
-            $table->boolean('check_in');
             $table->timestamp('check_in_and_out');
             $table->timestamps();
         });

@@ -39,7 +39,8 @@ export default function Setting(props){
   },[])
 
     return (
-        <div className="box">
+        <div className="container">
+<div className="box">
         <div className="box-body">
                 <Row>
                     <FormItem
@@ -49,7 +50,7 @@ export default function Setting(props){
                     />
                 </Row>
                 <div className="box-footer margin">
-                    <button style={{marginTop: "20px"}} type="submit"
+                    <button style={{marginTop: "20px", marginLeft:"20px"}} type="submit"
                             className="btn btn-primary btn-flat pull-right"
                             onClick={submitData}
                             >
@@ -62,5 +63,6 @@ export default function Setting(props){
                 </div>
         </div>
     </div>
+        </div>
     )
 }

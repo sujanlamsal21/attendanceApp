@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Header from './components/Header';
 import Setting from "./components/Setting";
 import Devices from "./components/Devices";
+import AttendanceData from "./components/AttendanceData";
 
 axios.defaults.withCredentials = true;
 const SERVER_DOMAIN = window.location.origin;
@@ -40,6 +41,10 @@ function App() {
                  axios={axios}
                 />} />
                 <Route path='/setting' element={<Setting 
+                  SERVER_DOMAIN={SERVER_DOMAIN}
+                  axios={axios}
+                />} />
+                 <Route path='/pull_data' element={<AttendanceData 
                   SERVER_DOMAIN={SERVER_DOMAIN}
                   axios={axios}
                 />} />

@@ -46,6 +46,7 @@ export default function Home(props) {
         getAllUsers();
     },[])
     return (
+        <div className="container">
         <Row className="col-md-12">
             <Col className="col-md-12">
                 <>
@@ -85,7 +86,8 @@ export default function Home(props) {
                 </div>
 
             </Col>
-            <CustomModal show={modalShow}
+        </Row>
+        <CustomModal show={modalShow}
                          handleOnClose={handleClose}
                          title={data.title}
                          buttonText={data.buttonText}
@@ -100,6 +102,6 @@ export default function Home(props) {
                              />
                          }
                         />
-        </Row>
+        </div>
     )
 }

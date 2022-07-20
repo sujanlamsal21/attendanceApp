@@ -3,11 +3,11 @@ import {Form, Row} from "react-bootstrap";
 import {FormItem} from "./Helper";
 const AddUser = (props) => {
     return (
-        <div>
+        // <div className='container'>
+        //     <div className='box'>
             <Form onSubmit={props.handleSubmit}
                   className='form-horizontal'
                   id='attendanceapp-form'>
-                <Row>
                     <FormItem input_name="name"
                               class='12'
                               labelClassPartation='2'
@@ -36,9 +36,9 @@ const AddUser = (props) => {
                               errors={props.errors.password ?? ''}
                               handleChange={props.handleOnInputChange}
                     />
-                </Row>
             </Form>
-        </div>
+        //     </div>
+        // </div>
     )
 }
 export default AddUser;

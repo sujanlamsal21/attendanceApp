@@ -3,7 +3,7 @@ import {Form, Row} from "react-bootstrap";
 import {FormItem} from "./Helper";
 const AddDeviceForm = (props) => {
     return (
-        <div>
+        <div className='container'>
             <Form onSubmit={props.handleSubmit}
                   className='form-horizontal'
                   id='attendanceapp-form'>
